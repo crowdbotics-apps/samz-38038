@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3e71e566d840eeb942e7eb7cb291120ce9f76f5f4ee883b408e2c445be0e657d"
+            "sha256": "2edf00969e81b627814ea5782f47099269795408423a8e43744d61c63f08b8ee"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -55,6 +55,10 @@
             ],
             "markers": "python_version ~= '3.7'",
             "version": "==5.2.0"
+        },
+        "cb-django-social-auth": {
+            "editable": true,
+            "path": "./modules/django_social_auth"
         },
         "cb-terms-and-conditions": {
             "editable": true,
@@ -675,11 +679,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:1a89a12377800c81983db6be069ec068eee989748799b946cce2a6e80dcc54ca",
-                "sha256:b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e"
+                "sha256:69de5933ec873bd7ddae497f004be17cf200bce048dc987c28fc4e347d5349ff",
+                "sha256:e13f076e0f725f1beb58e7d26f80eff94099941740d3c664db03efecd6561271"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2.6.0"
+            "version": "==2.6.1"
         },
         "pluggy": {
             "hashes": [
