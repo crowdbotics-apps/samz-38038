@@ -5,6 +5,7 @@ class Buyer(models.Model):
     userProfile = models.ForeignKey("users.User",on_delete=models.PROTECT,related_name="buyer_userProfile",)
     billingHistory = models.TextField(null=True,blank=True,)
     reviewHistory = models.TextField(null=True,blank=True,)
+    aboutMe = models.TextField(null=True,blank=True,)
 class Artist(models.Model):
     'Generated Model'
     userProfile = models.ForeignKey("users.User",on_delete=models.PROTECT,related_name="artist_userProfile",)
