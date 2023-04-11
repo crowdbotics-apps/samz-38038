@@ -23,5 +23,6 @@ class Event(models.Model):
     buyer = models.ForeignKey("users.User",on_delete=models.CASCADE,related_name="event_buyer",)
     artist = models.ForeignKey("users.User",on_delete=models.CASCADE,related_name="event_artist",)
     price = models.FloatField(null=True,blank=True,)
+    location = models.CharField(max_length=256,null=True,blank=True,)
 
 # Create your models here.
