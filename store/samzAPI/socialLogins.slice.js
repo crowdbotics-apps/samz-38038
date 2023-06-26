@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { apiService } from "./api"
-export const modules_social_auth_google_login_create = createAsyncThunk(
-  "socialLogins/modules_social_auth_google_login_create",
+export const modules_social_auth_facebook_connect_create = createAsyncThunk(
+  "socialLogins/modules_social_auth_facebook_connect_create",
   async payload => {
-    const response = await apiService.modules_social_auth_google_login_create(
+    const response = await apiService.modules_social_auth_facebook_connect_create(
       payload
     )
     return response.data
@@ -27,10 +27,10 @@ export const modules_social_auth_google_connect_create = createAsyncThunk(
     return response.data
   }
 )
-export const modules_social_auth_facebook_connect_create = createAsyncThunk(
-  "socialLogins/modules_social_auth_facebook_connect_create",
+export const modules_social_auth_google_login_create = createAsyncThunk(
+  "socialLogins/modules_social_auth_google_login_create",
   async payload => {
-    const response = await apiService.modules_social_auth_facebook_connect_create(
+    const response = await apiService.modules_social_auth_google_login_create(
       payload
     )
     return response.data
@@ -42,18 +42,21 @@ const socialLoginsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [modules_social_auth_google_login_create.pending]: (state, action) => {
+    [modules_social_auth_facebook_connect_create.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_social_auth_google_login_create.fulfilled]: (state, action) => {
+    [modules_social_auth_facebook_connect_create.fulfilled]: (
+      state,
+      action
+    ) => {
       if (state.api.loading === "pending") {
         state.entities.push(action.payload)
         state.api.loading = "idle"
       }
     },
-    [modules_social_auth_google_login_create.rejected]: (state, action) => {
+    [modules_social_auth_facebook_connect_create.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
@@ -93,21 +96,18 @@ const socialLoginsSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [modules_social_auth_facebook_connect_create.pending]: (state, action) => {
+    [modules_social_auth_google_login_create.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_social_auth_facebook_connect_create.fulfilled]: (
-      state,
-      action
-    ) => {
+    [modules_social_auth_google_login_create.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities.push(action.payload)
         state.api.loading = "idle"
       }
     },
-    [modules_social_auth_facebook_connect_create.rejected]: (state, action) => {
+    [modules_social_auth_google_login_create.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
@@ -116,9 +116,9 @@ const socialLoginsSlice = createSlice({
   }
 })
 export default {
-  modules_social_auth_google_login_create,
+  modules_social_auth_facebook_connect_create,
   modules_social_auth_facebook_login_create,
   modules_social_auth_google_connect_create,
-  modules_social_auth_facebook_connect_create,
+  modules_social_auth_google_login_create,
   slice: socialLoginsSlice
 }
